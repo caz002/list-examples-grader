@@ -1,14 +1,16 @@
 import static org.junit.Assert.*;
 import org.junit.*;
+import java.util.ArrayList;
 
 class AChecker implements StringChecker{
   public boolean checkString(String s){
-    for(i = 0; i < s.length() - 1; i++){
+    for(int i = 0; i < s.length() - 1; i++){
       if(s.substring(i, i+1).equals("a") || s.substring(i, i+1).equals("A")){
         return true;
       }
     }
   }
+  return false;
 }
 public class TestListExamples {
   // Write your grading tests here!
@@ -27,7 +29,7 @@ public class TestListExamples {
 
     ArrayList<String> expected = new ArrayList<String>();
     expected.add("A");
-    assertEquals(expected, list1);
+    assertEquals(expected, filter(list1, AChecker));
   }
   //Tests of static List<String> merge(List<String> list1, List<String> list2)
   @Test
